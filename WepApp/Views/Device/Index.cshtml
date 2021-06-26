@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Devices";
+    var view = new VstViewFormat
+    {
+        DataSource = Model,
+        Columns = new List<ColumnInfo>
+{
+            new ColumnInfo { Name = "Id", ClassName = "lg-12", Caption = "Mã thiết bị" },
+            new ColumnInfo { Name = "Name", ClassName = "lg-12", Caption = "Tên thiết bị" },
+        },
+    };
+}
+
+<h2>@ViewBag.Title</h2>
+
+<style>
+    .Id {
+        width: 200px;
+        padding-bottom: 40px;
+    }
+
+    .Name {
+        width: 400px;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    h2 {
+        padding-top: 50px;
+        text-align: center;
+    }
+</style>
+
+<div id="main-content"></div>
+
+<script>
+    var fields = @view.HtmlColumns;
+    var values = @view.HtmlData;
+
+    var table = new ApiTable("/device/", fields, values, 7, "gear");
+</script>
+<br />
+<br />
+<br />
+<footer class="footer">
+    <br />
+    <p> Copyright &copy; by Group 2</p>
+</footer>

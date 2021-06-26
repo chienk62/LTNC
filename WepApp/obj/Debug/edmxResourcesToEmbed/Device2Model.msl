@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="device2ModelStoreContainer" CdmEntityContainer="device2Entities">
+    <EntitySetMapping Name="Newdevices">
+      <EntityTypeMapping TypeName="device2Model.Newdevice">
+        <MappingFragment StoreEntitySet="Newdevices">
+          <ScalarProperty Name="Deviceid" ColumnName="Deviceid" />
+          <ScalarProperty Name="Devicename" ColumnName="Devicename" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

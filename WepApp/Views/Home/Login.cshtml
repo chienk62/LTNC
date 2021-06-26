@@ -1,0 +1,71 @@
+﻿@model WepApp.Models.AccountBinding
+<link href="/Content/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Site.css?v=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@{
+    ViewBag.Title = "Login";
+    var view = new VstViewFormat
+    {
+        DataSource = Model,
+        Columns = new List<ColumnInfo>
+{
+            new ColumnInfo { Name = "UserName", ClassName = "lg-12", Caption = "Tên người dùng", AllowNull = false },
+            new ColumnInfo { Name = "Password", ClassName = "lg-12", Caption = "Mật khẩu", Type = "password" },
+            new ColumnInfo { Name = "KeepLogin", ClassName = "lg-12", Caption = "Duy trì đăng nhập", Input = "checkbox" },
+        },
+    };
+}
+<style>
+    body {
+        top: 0;
+        left: 0;
+        color: #000;
+        font: 14px Arial;
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        background-image: url("../../Content/Image/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .home {
+        display: inline-block;
+        width: 250px;
+    }
+
+    h2 {
+        margin-top: 100px;
+        margin-left: 30%;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+    }
+</style>
+
+<h2>Đăng nhập</h2>
+<div id="main-content">
+    <img class="home" src="~/Content/Image/cat2.png" />
+    <br />
+    <script>
+    var fields = @view.HtmlColumns;
+    var values = @view.HtmlData;
+
+    var dlg = new ApiForm("/home/login", fields, values);
+    ApiMessages = ["Dang nhap thanh cong", "Nguoi dung khong ton tai", "Sai mat khau"];
+
+    responseOK = function (e) {
+        window.location.href = "/home/index/" + e.Value.Id;
+    }
+    //showMsg = function (s) { alert(s); }
+    </script>
+    <footer>
+        <br /><br /><br /><br />
+        <hr />
+        <p class="footer">  Copyright &copy; by group 2</p>
+    </footer>
+</div>
